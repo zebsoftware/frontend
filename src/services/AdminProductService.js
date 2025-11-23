@@ -1,23 +1,21 @@
-import axios from "axios";
-
-const API_URL = "http://localhost:5000/api/products";
+import api from "./api"; // import the axios instance
 
 export const getAllProducts = async () => {
-  return axios.get(API_URL);
+  return api.get("/products"); // no need to repeat baseURL
 };
 
 export const addProduct = async (formData) => {
-  return axios.post(API_URL, formData, {
+  return api.post("/products", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
 
 export const updateProduct = async (id, formData) => {
-  return axios.put(`${API_URL}/${id}`, formData, {
+  return api.put(`/products/${id}`, formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 };
 
 export const deleteProduct = async (id) => {
-  return axios.delete(`${API_URL}/${id}`);
+  return api.delete(`/products/${id}`);
 };
