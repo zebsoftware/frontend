@@ -28,7 +28,7 @@ export default function CheckoutForm() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/payment/create-payment-intent",
+        "https://backend-16lc.onrender.com/api/payment/create-payment-intent",
         { amount: 5000 } // $50 dummy
       );
 
