@@ -1,16 +1,40 @@
 import api from "./api";
 
-// GET profile
+// GET profile (with token)
 export const getProfile = async () => {
-  return (await api.get("/api/profile")).data;
+  const token = localStorage.getItem("token");
+
+  return (
+    await api.get("/api/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  ).data;
 };
 
-// UPDATE or CREATE profile
+// UPDATE profile (with token)
 export const updateProfile = async (data) => {
-  return (await api.post("/api/profile", data)).data;
+  const token = localStorage.getItem("token");
+
+  return (
+    await api.post("/api/profile", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  ).data;
 };
 
-// DELETE profile
+// DELETE profile (with token)
 export const deleteProfile = async () => {
-  return (await api.delete("/api/profile")).data;
+  const token = localStorage.getItem("token");
+
+  return (
+    await api.delete("/api/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  ).data;
 };

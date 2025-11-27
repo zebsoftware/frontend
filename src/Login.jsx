@@ -23,7 +23,7 @@ function Login() {
       alert(res.message || "Login Successful!");
 
       // Redirect to dashboard
-      navigate("/admin");
+      navigate("/");
 
       // Clear input fields
       emailRef.current.value = "";

@@ -1,22 +1,25 @@
-import React from "react";
-
-export default function ProfileCard() {
+export default function ProfileCard({ user, onEdit, onDelete }) {
   return (
-    <div className="card p-3 shadow-sm rounded-4">
-      <div className="text-center">
-        <img
-          src="https://via.placeholder.com/120"
-          alt="profile"
-          className="rounded-circle mb-3"
-        />
-        <h5 className="fw-bold">John Doe</h5>
-        <p className="text-muted">johndoe@gmail.com</p>
-      </div>
+    <div className="card p-3 shadow-sm">
+      <h4>{user.name}</h4>
+      <p className="text-muted">{user.email}</p>
 
       <hr />
 
-      <button className="btn btn-dark w-100 mt-2">Edit Profile</button>
-      <button className="btn btn-outline-danger w-100 mt-2">Logout</button>
+      <p><strong>Phone:</strong> {user.phone || "Not set"}</p>
+      <p><strong>Address:</strong> {user.address || "Not set"}</p>
+      <p><strong>City:</strong> {user.city || "Not set"}</p>
+      <p><strong>Country:</strong> {user.country || "Not set"}</p>
+      <p><strong>Postal Code:</strong> {user.postalCode || "Not set"}</p>
+
+      <div className="d-flex gap-2 mt-3">
+        <button className="btn btn-warning w-50" onClick={onEdit}>
+          Edit Profile
+        </button>
+        <button className="btn btn-danger w-50" onClick={onDelete}>
+          Delete Account
+        </button>
+      </div>
     </div>
   );
 }
