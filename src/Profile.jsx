@@ -4,6 +4,7 @@ import OrderList from "./components/OrderList";
 import PaymentMethod from "./components/PaymentMethod";
 import EditProfile from "./components/EditProfile";
 import { getProfile, deleteProfile } from "./services/profileService";
+import { Navigate } from "react-router-dom";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -29,7 +30,8 @@ export default function Profile() {
 
     await deleteProfile();
     localStorage.removeItem("token");
-    window.location.href = "/login"; // redirect to login
+    window.location.href = "/login";
+    Navigate("/") ;// redirect to login
   };
 
   if (!user) return <p className="text-center mt-5">Loading...</p>;
