@@ -29,24 +29,13 @@ function Header() {
           </ul>
 
           <div className="d-flex align-items-center">
+            <Link className="dropdown-item text-white me-3" to="/login">Login</Link>
             <i className="bi bi-search me-3 text-white"></i>
             <i className="bi bi-heart me-3 text-white"></i>
             <i className="bi bi-cart3 me-3 text-white"></i>
-
-            
-            <div className="dropdown">
-              <i
-                className="bi bi-person text-white dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-              ></i>
-              <ul className="dropdown-menu dropdown-menu-end">
-                <li><Link className="dropdown-item" to="/login">Login</Link></li>
-                <li><Link className="dropdown-item" to="/register">Register</Link></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/admin">Admin Panel</Link></li>
-              </ul>
-            </div>
+            <Link to="/profile" className="text-white"><i className="bi bi-person"></i></Link>
+              
+            {/* <li><Link className="dropdown-item" to="/admin">Admin Panel</Link></li> */}  
           </div>
         </div>
       </div>

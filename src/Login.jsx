@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "./services/authService";
-
+import Header from "./Header";
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -12,11 +12,14 @@ function Login() {
 
     try {
       // Call login API
-      const res = await loginUser(emailRef.current.value, passwordRef.current.value);
+      const res = await loginUser(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
 
-      // Store token in localStorage
+      // ✅ Correct: store the token from res.token
       localStorage.setItem("token", res.token);
- 
+
       alert(res.message || "Login Successful!");
 
       // Redirect to dashboard
@@ -31,7 +34,10 @@ function Login() {
   };
 
   return (
+    <>
+    <Header/>
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      
       <div className="p-5 bg-white rounded shadow-lg" style={{ width: "400px" }}>
         <h2 className="text-center fw-bold mb-4" style={{ color: "#043273ff" }}>
           Login
@@ -78,6 +84,7 @@ function Login() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

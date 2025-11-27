@@ -2,19 +2,21 @@ import { createBrowserRouter } from "react-router-dom";
 
 
 import LandingPage from "./LandingPage";
-import Shop from "./Shop";
+import Shop from "./Shop"
 import About from "./About";
 import Contact from "./Contact";
 import Login from "./Login";
 import RegistrationForm from "./RegistrationForm";
 import ProductDetail from "./ProductDetail";
 import Checkout from "./Checkout";
+import Profile from "./Profile";
 
 import AdminDashboard from "./Admin/AdminDashboard";
 import AdminProducts from "./Admin/AdminProducts";
 import AdminOrders from "./Admin/AdminOrders";
 import AdminUsers from "./Admin/AdminUsers";
 import Header from "./Header";
+
 const route = createBrowserRouter([
   <Header/>,
   
@@ -25,7 +27,7 @@ const route = createBrowserRouter([
   { path: "/login", element: <Login /> },
   { path: "/register", element: <RegistrationForm /> },
   { path: "/product/:id", element: <ProductDetail /> },
-
+   { path: "/profile", element: <Profile /> },
   { path: "/admin", element: <AdminDashboard /> },
   { path: "/admin/products", element: <AdminProducts /> },
   { path: "/admin/orders", element: <AdminOrders /> },
